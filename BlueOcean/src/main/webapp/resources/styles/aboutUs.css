@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+
+/*
+#myImg{
+	 width: 100%;
+     height : 300px;
+     margin: auto;
+   display: block; 
+     padding:10px;
+     border-radius: 80px / 40px;;
+    	
+}
+*/
+
+.explain{
+	
+	padding:20px;
+}
+
+.contatctUs{
+	font-size:10px;
+	padding:20px;
+	text-decoration:none;
+}
+
