@@ -6,13 +6,36 @@
 <c:import url="/WEB-INF/views/include/header.jsp"></c:import>
 <c:set var='root' value="${pageContext.request.contextPath }/" />
 
+<script>
+	function checkUserIdExist(){
+		
+		var user_id = $("#user_id").val();
+		
+		if(user_id.length==0){
+			alert("아이디를 입력해주세요")
+			return
+		}
+		
+		$.ajax({
+			url: '${root}user/checkUserIdExist/' + user_id,
+			type: 'get',
+			dataType : 'text',
+			success : function(result){
+				if(result.trim()=='true'){
+					alert("사용할 수 있는 아이디입니다.")
+				}else{
+					alert("사용할 수 없는 아이디입니다.")
+				}
+				
+			}
+			
+		})
+		
+		
+	}
 
+</script>
 <h3>회원가입</h3>
-
-
- 
-
-
 <div class="container" style="margin-top:100px">
 	<div class="row">
 		<div class="col-sm-3"></div>
@@ -30,7 +53,7 @@
 							<div class="input-group">
 								<form:input path="user_id" class="form-control"/>
 								<div class="input-group-append">
-									<button type="button" class="btn btn-primary">중복확인</button>
+									<button type="button" class="btn btn-primary" onclick='checkUserIdExist()'>중복확인</button>
 								</div>
 							</div>
 							<form:errors path="user_id" />

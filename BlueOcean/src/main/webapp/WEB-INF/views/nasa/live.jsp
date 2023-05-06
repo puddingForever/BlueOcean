@@ -8,12 +8,11 @@
 
 <div class="main">
 
-<div id="time">
-${requestScope.today}
-</div>
+실시간 우주 뉴스 !!
 
-<div id="astroid">
-지구 접근 소행성 : ${requestScope.element_count}개
-</div>
+${yesterday}~ ${today} 접근 소행성의 갯수 : ${asteroidsData.element_count }
+
+
+
 </div>
 <c:import url="/WEB-INF/views/include/footer.jsp"></c:import>

@@ -10,6 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <title>블루오션 🚀 Mission To Space 🚀</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css"
 	href="../resources/styles/bootstrap.min.css">
 
@@ -36,7 +37,8 @@ a{
 
 	<div class="container">
 		 <a href="${root}main/aboutUs">&nbsp;&nbsp;About us</a> &nbsp; &nbsp;|
-		  <a href="${root}live/mars">&nbsp; &nbsp;<spring:message code='label.live' /></a> &nbsp; &nbsp;| 
+		  <a href="${root}live/mars">&nbsp; &nbsp;<spring:message code='label.rover' /></a> &nbsp; &nbsp;| 
+			<a href="${root}live/live">&nbsp; &nbsp;<spring:message code='label.live' /></a> &nbsp; &nbsp;|   
 		  <a href="${root}user/login">&nbsp; &nbsp;<spring:message code='label.login'/></a>	&nbsp; &nbsp;| 
 		  <a href="${root}user/join">&nbsp; &nbsp;<spring:message code='label.join' /></a> &nbsp; &nbsp;|
 		<a href="${root}user/modify">&nbsp; &nbsp;<spring:message code='label.modify' /></a>	&nbsp; &nbsp;| 
