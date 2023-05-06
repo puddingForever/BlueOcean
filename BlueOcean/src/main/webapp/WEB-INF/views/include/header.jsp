@@ -14,6 +14,7 @@
 <link rel="stylesheet" type="text/css"
 	href="../resources/styles/bootstrap.min.css">
 
+
 <style>
 .container{
 color:#CFD8DC;
