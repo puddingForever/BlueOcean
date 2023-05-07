@@ -1,4 +1,4 @@
-package com.blueocean.database;
+package com.blueocean.mapper;
 
 public interface BoardMapper {
 

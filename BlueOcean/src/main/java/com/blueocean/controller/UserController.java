@@ -28,8 +28,7 @@ public class UserController {
 	}
 	
 	
-	//BindingREsult : 요효성 결과를 담고 있음 
-	
+	//BindingREsult : 요효성 결과를 담고 있음
 	@PostMapping("/join_pro")
 	public String join_pro(@Validated @ModelAttribute("joinUserBean") UserBean joinUserBean,BindingResult result) {
 		

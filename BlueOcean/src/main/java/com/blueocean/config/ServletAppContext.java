@@ -16,13 +16,12 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import com.blueocean.database.BoardMapper;
+import com.blueocean.mapper.BoardMapper;
 import com.blueocean.mapper.UserMapper;
 
 @Configuration
 @EnableWebMvc
 @ComponentScan("com.blueocean.controller")
-@ComponentScan("com.blueocean.nasa.service")
 @ComponentScan("com.blueocean.dao")
 @ComponentScan("com.blueocean.service")
 @PropertySource("/WEB-INF/properties/db.properties")

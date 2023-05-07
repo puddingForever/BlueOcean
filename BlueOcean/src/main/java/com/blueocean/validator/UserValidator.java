@@ -24,6 +24,11 @@ public class UserValidator implements Validator {
 			
 		}
 		
+		if(userBean.isUserIdExist()==false) {
+			
+			errors.rejectValue("user_id","DontCheckUserIdExist");
+		}
+		
 
 		
 	}

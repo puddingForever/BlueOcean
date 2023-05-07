@@ -14,7 +14,6 @@ public class UserService {
 	public boolean checkuserIdExist(String user_id) {
 		String user_name = userDao.checkUserIdExist(user_id);
 		
-		
 		if(user_name==null) {
 			return true;
 		}else {
