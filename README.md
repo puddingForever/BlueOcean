@@ -4,9 +4,7 @@
 ## ERD
 
 ## 기능 
-+ Validation과 Validator를 이용한 회원가입 유효성검사
-+ Ajax를 이용한 아이디 중복확인처리 
-
++ Validation과 Ajax를 이용한 회원가입 유효성검사
 + 후기게시판
 + 여행상품판매
 + 오픈 API를 이용한 동적인 데이터확인
