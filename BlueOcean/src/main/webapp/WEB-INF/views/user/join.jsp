@@ -49,6 +49,7 @@
 			<div class="card shadow">
 				<div class="card-body">
 				<form:form action="${root }user/join_pro" method='post' modelAttribute="joinUserBean">
+				<!-- 유효성검사를 위한 값설정  -->
 						<form:hidden path="userIdExist"/>
 						<div class="form-group">
 							<form:label path="user_name">이름</form:label>

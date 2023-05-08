@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <c:import url="/WEB-INF/views/include/header.jsp"></c:import>
 
-<%-- 
-<%@ include file="./include/header.jsp"%>
---%>
+
 <%--css--%>
 <link rel="stylesheet" type="text/css"
 	href="./resources/styles/mainPage.css">
@@ -13,9 +12,9 @@
 <div class="main-wrap">
 
 	<div class="main-text">
-		우주 여행이 필요할 때,&nbsp;블루오션
+		<spring:message code="main.title"/> <spring:message code="main.name"/>
 		<div class="main-text2">
-		🔹 보다 안전한 여행 프로그램&nbsp; &nbsp;&nbsp;    🔹 24시간 우주정보
+		<spring:message code="main.one"/> &nbsp; &nbsp;&nbsp; <spring:message code="main.two" />
 	</div>
 	</div>
 	

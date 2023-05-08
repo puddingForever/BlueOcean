@@ -3,6 +3,7 @@ package com.blueocean.dao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.blueocean.beans.UserBean;
 import com.blueocean.mapper.UserMapper;
 
 @Repository
@@ -15,5 +16,12 @@ public class UserDao {
 		return userMapper.checkUserIdExist(user_id);
 	}
 	
+	public void addUserInfo(UserBean joinUserBean) {
+		userMapper.addUserInfo(joinUserBean);
+	}
 	
+	public UserBean getLoginUserInfo(UserBean tempLoginUserBean) {
+		return userMapper.getLoginUserInfo(tempLoginUserBean);
+	}
+
 }

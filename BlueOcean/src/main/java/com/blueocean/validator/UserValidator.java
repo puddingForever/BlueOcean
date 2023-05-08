@@ -18,6 +18,9 @@ public class UserValidator implements Validator {
 		// TODO Auto-generated method stub
 		UserBean userBean = (UserBean)target;
 		
+		String beanName = errors.getObjectName();
+		
+		if(beanName.equals("joinUserBean")) { //회원가입할떄만 검사
 		if(userBean.getUser_pw().equals(userBean.getUser_pw2())==false) {
 			errors.rejectValue("user_pw", "NotEquals");
 			errors.rejectValue("user_pw2", "NotEquals");
@@ -26,9 +29,10 @@ public class UserValidator implements Validator {
 		
 		if(userBean.isUserIdExist()==false) {
 			
-			errors.rejectValue("user_id","DontCheckUserIdExist");
+			errors.rejectValue("user_id","checkAgain");
 		}
 		
+		}
 
 		
 	}

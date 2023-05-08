@@ -23,10 +23,15 @@ public class UserBean {
 	 @Pattern(regexp="[a-zA-Z0-9]*")
 	 private String user_pw2;
 	 
+	 //아이디 중복체크 여부 프로퍼티
 	 private boolean userIdExist;
+	 //로그인 여부 프로퍼티
+	 private boolean userLogin;
+	 
 	 
 	 public UserBean() {
 		 this.userIdExist = false;
+		 this.userLogin = false;
 	 }
 	 
 	public int getUser_idx() {
@@ -73,6 +78,15 @@ public class UserBean {
 	public void setUserIdExist(boolean userIdExist) {
 		this.userIdExist = userIdExist;
 	}
+
+	public boolean isUserLogin() {
+		return userLogin;
+	}
+
+	public void setUserLogin(boolean userLogin) {
+		this.userLogin = userLogin;
+	}
+	
 	
 	
 }
