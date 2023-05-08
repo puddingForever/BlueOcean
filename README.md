@@ -9,6 +9,7 @@
 + Validation과 Ajax를 이용한 회원가입 유효성검사
 + 후기게시판
 + 여행상품판매
++ MessageSource를 이용한 다국어처리
 + NASA 오픈API를 이용한 데이터확인
 
 
