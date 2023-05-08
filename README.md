@@ -6,11 +6,20 @@
 
 
 ### 기능 
-+ Validation과 Ajax를 이용한 회원가입 유효성검사
+#### 회원관리
++ validation과 Ajax를 이용한 회원가입 유효성검사
 + validation으로 회원정보 유효성 검사 및 로그인처리
+#### 기타기능
 + MessageSource를 이용한 다국어처리
 + 오픈API를 이용한 데이터 불러오기
 
+
+### 앞으로의 계획..
++ 게시판
++ Curiosity 도착 4000일 기념 이벤트 만들어보기 
++ ajax 예약시스템
++ ajax 댓글기능 구현 
++ nasa api 한개 더 ..
 
 
 # 결과
@@ -21,7 +30,7 @@
 
 
 <img src="https://user-images.githubusercontent.com/126591306/236834791-f4e21d07-6474-4179-bf11-09db4d7d3741.png" width="500" height="300"/> <br/>
-+ validation을 이용하여 유효성을 검사, 유효성 통과시 아이디와 비밀번호를 통해 DB에 저장되어있는 회원 정보를 UserBean객체에 저장하여, 로그인을 진행
++ validation을 이용하여 유효성을 검사, 유효성 통과시 아이디와 비밀번호를 통해 DB에 저장되어있는 회원 정보를 UserBean객체에 저장하여, 로그인을 진행<br/>
 <img src="https://user-images.githubusercontent.com/126591306/236835910-d882c21b-3e70-4be2-9fd0-d1ac24818df4.png" width="500" height="300"/> <br/>
 + 로그인 실패처리 배너는 로그인을 못한 회원만 볼 수 있도록 설정.
 + 로그인 실패시 location.href에 파라메터값으로 로그인에 실패했다는 값을 바인딩하였음.
@@ -32,7 +41,6 @@
 #### NASA에서 제공되는 json형식의 데이터를 이용
 + 화성탐사로봇인 Curiosity가 촬영한 사진들을 볼 수 있는 프로그램이며 날짜를 입력하여 특정 날짜에 찍힌 화성의 사진들을 확인 할 수 있음  <br>
 <img src="https://user-images.githubusercontent.com/126591306/236594945-0ecd60bb-1d4a-4875-8885-7b408f954aad.png" width="500" height="300"/> <br/>
-+ 지구 접근 소행성을 확인하는 화면<br>
 
 
 ### 다국어처리
