@@ -22,7 +22,7 @@
 
 
 ### 오픈API 활용 
-#### NASA에서 제공되는 json형식의 오픈API를 이용
+#### NASA에서 제공되는 json형식의 데이터를 이용
 + 화성탐사로봇인 Curiosity가 촬영한 사진들을 볼 수 있는 프로그램 <br>
 <img src="https://user-images.githubusercontent.com/126591306/236594945-0ecd60bb-1d4a-4875-8885-7b408f954aad.png" width="400" height="300"/> <br/>
 사용자는 날짜를 입력하여 해당 날짜에 찍힌 화성의 사진들을 확인 할 수 있음  <br>
