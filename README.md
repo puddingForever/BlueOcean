@@ -2,7 +2,7 @@
 
 # 프로젝트 구상
 ### ERD
-<img src="https://user-images.githubusercontent.com/126591306/236733775-ae90706d-d574-4719-8e3f-38e572133c25.png" width="400" height="300"/> <br/>
+<img src="https://user-images.githubusercontent.com/126591306/236733775-ae90706d-d574-4719-8e3f-38e572133c25.png" width="500" height="400"/> <br/>
 
 
 ### 기능 
