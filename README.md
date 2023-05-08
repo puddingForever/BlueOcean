@@ -1,9 +1,11 @@
 # 우주 여행 프로젝트 Blue Ocean
 
 # 프로젝트 구상
-## ERD
+### ERD
+<img src="https://user-images.githubusercontent.com/126591306/236733447-aaecaec9-2fc6-4271-8997-751b0b68bf8c.png" width="400" height="300"/> <br/>
 
-## 기능 
+
+### 기능 
 + Validation과 Ajax를 이용한 회원가입 유효성검사
 + 후기게시판
 + 여행상품판매
