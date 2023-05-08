@@ -30,6 +30,16 @@
 + 지구 접근 소행성을 확인하는 화면<br>
 
 
+### 다국어처리
+#### MessageSource를 이용하여, Locale에 따라 한국어,영어,독일어로 상단메뉴가 바뀌도록 설정 <br?
++ 사용자의 언어가 en 으로 설정됬을 경우 영어표시 <br>
+<img src="https://user-images.githubusercontent.com/126591306/236740902-d88295e4-e506-4dbe-bcf1-b1691018f5e0.png" width="400" height="300"/> <br>
++ 사용자의 언어가 de 으로 설정됬을 경우 독일어 표시 <br>
+<img src="https://user-images.githubusercontent.com/126591306/236741248-7465b092-f9ed-4ce8-b904-003e1ace0d5a.png" width="400" height="300"/> <br>
+
+
+
+
 
 
 
