@@ -20,6 +20,7 @@
 + ajax 예약시스템
 + ajax 댓글기능 구현 
 + nasa api 한개 더 ..
++ spring auth (구글로그인) 
 
 
 # 결과
