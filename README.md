@@ -1,6 +1,9 @@
 # 우주 여행 프로젝트 Blue Ocean
 
 # 프로젝트 구상
+
+### 프로젝트 기간
+2023-05-01~
 ### ERD
 <img src="https://user-images.githubusercontent.com/126591306/236733775-ae90706d-d574-4719-8e3f-38e572133c25.png" width="500" height="400"/> <br/>
 
@@ -8,19 +11,22 @@
 ### 기능 
 #### 회원관리
 + validation과 Ajax를 이용한 회원가입 유효성검사
-+ validation으로 회원정보 유효성 검사 및 로그인처리
++ CRUD 회원가입 및 로그인처리
++ 인터셉터를 이용한 메뉴 구성
+#### 오픈 API의 JSON 데이터 활용 
++ NASA의 Mars Rover Photos API를 이용하여 원하는 날짜의 화성사진 보여줌
 #### 기타기능
 + MessageSource를 이용한 다국어처리
-+ 오픈API를 이용한 데이터 불러오기
 
 
 ### 앞으로의 계획..
-+ 게시판
-+ Curiosity 도착 4000일 기념 이벤트 만들어보기 
-+ ajax 예약시스템
-+ ajax 댓글기능 구현 
-+ nasa api 한개 더 ..
-+ spring auth (구글로그인) 
++ 후기 게시판구현
++ Curiosity 도착 4000일 기념 팝업창 만들어보기 (쿠키)
++ nasa api https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY
++ 해당 사진 저장시 회원 프로필 사진으로 갈 수 있도록 만들어보기
++ ajax 댓글
++ 상품판매페이지 
++ spring auth (구글,카카오 로그인 프로그램 만들어보기) 
 
 
 # 결과
