@@ -30,9 +30,10 @@ Curiosty의 화성 도착일은 <strong>2012년 8월 6일</strong>이며 화성�
 
 
 
-<c:forEach var="photos" items="${roverData.photos}" varStatus="status" begin="0" end="${arrSize}" >
+<c:forEach var="photos" items="${roverData.photos}" >
    <img src="${photos.img_src }" width="400px" height="300px" style="padding:10px"/>
 </c:forEach>
+
 </div>
 
 

@@ -46,6 +46,14 @@ public class UserService {
 		}
 		
 	}
+	
+	//정보수정
+	public void getModifyUserInfo(UserBean modifyUserBean) {
+		UserBean tempModifyUserBean = userDao.getModifyUserInfo(loginUserBean.getUser_idx());
+		modifyUserBean.setUser_id(tempModifyUserBean.getUser_id());
+		modifyUserBean.setUser_name(tempModifyUserBean.getUser_name());
+		modifyUserBean.setUser_idx(tempModifyUserBean.getUser_idx());
+	}
 
 	
 }

@@ -2,7 +2,9 @@ package com.blueocean.controller;
 
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import javax.websocket.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -43,7 +45,7 @@ public class UserController {
 	
 	//BindingREsult : 요효성 결과를 담고 있음
 	@PostMapping("/join_pro")
-	public String join_pro(@Validated @ModelAttribute("joinUserBean") UserBean joinUserBean,BindingResult result) {
+	public String join_pro(@Valid @ModelAttribute("joinUserBean") UserBean joinUserBean,BindingResult result) {
 		
 		if(result.hasErrors()) {
 			return "user/join";
@@ -57,7 +59,7 @@ public class UserController {
 	
 	/*로그인*/
 	@GetMapping("/login")
-	public String login(@ModelAttribute("tempLoginUserBean")UserBean loginUserBean,
+	public String login(@ModelAttribute("tempLoginUserBean")UserBean tempLoginUserBean,
 							@RequestParam(value="fail",defaultValue="false")boolean fail,
 							Model model) {
 		
@@ -66,14 +68,14 @@ public class UserController {
 	}
 	
 	@PostMapping("/login_pro")
-	public String login_pro(@Valid @ModelAttribute("tempLoginUserBean")UserBean loginUserBean,
+	public String login_pro(@Valid @ModelAttribute("tempLoginUserBean")UserBean tempLoginUserBean,
 						BindingResult result) {
 		
 		if(result.hasErrors()) {
 			return "user/login";
 		}
 		
-		userService.getLoginUserInfo(loginUserBean);
+		userService.getLoginUserInfo(tempLoginUserBean);
 		
 		if(loginUserBean.isUserLogin()==true) {
 			return "user/login_success";
@@ -82,20 +84,51 @@ public class UserController {
 		}
 	}
 	
-	/*정보수정*/
-	@GetMapping("/modify")
-	public String modify() {
-		
-		return "user/modify";
-	}
-	
-	
-	
 	/*로그아웃*/
 	@GetMapping("/logout")
 	public String logout() {
+		
+		loginUserBean.setUserLogin(false);
+		
 		return "user/logout";	
 	}
+	
+	
+	/*회원 프로필*/
+	@GetMapping("/profile")
+	public String profile() {
+		return "user/profile";
+	}
+	
+	/*정보수정*/
+	@GetMapping("/modify")
+	public String modify(@ModelAttribute("modifyUserBean") UserBean modifyUserBean) {
+		
+		userService.getModifyUserInfo(modifyUserBean);
+		
+		return "user/modify";
+	}
+	@PostMapping("/modify_pro")
+	public String modify_pro(@Valid @ModelAttribute("modifyUserBean") UserBean modifyUserBean, BindingResult result) {
+		
+		if(result.hasErrors()) {
+			return "user/modify";
+		}
+		
+	
+		
+		return "user/modify_success";
+	}
+	
+	
+	@GetMapping("/not_login")
+	public String not_login() {
+		return "user/not_login";
+	}
+	
+	
+
+	
 	
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {

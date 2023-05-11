@@ -4,25 +4,55 @@ package com.blueocean.service;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.blueocean.response.AsteroidsApiResponse;
+import com.blueocean.dao.NasaDao;
 import com.blueocean.response.MarsRoverApiResponse;
+import com.blueocean.response.PlanetArtApiResponse;
 
-//컨트롤러가 똑같은 기능을 해야한다면 , service로 그 동작들을 뺄 수 있음 
 @Service
 public class MarsRoverApiService {
 	
+	@Autowired
+	private NasaDao nasaDao;
+	
+	
+	
 	private String apiKey = "te7D0y8ycuRMsbRupHfZKL4ISLqp1Txm0VzaeNs1";
 	
-	//rover api
+	
+	
+	//화성사진
 	public MarsRoverApiResponse getRoverData(Integer marsSol) {
 		RestTemplate rt = new RestTemplate();
 		ResponseEntity<MarsRoverApiResponse> response = rt.getForEntity("https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol="+marsSol+"&api_key="+apiKey, MarsRoverApiResponse.class);
 		return response.getBody();
 	}
+	
+	//우주사진
+	public PlanetArtApiResponse getArtData() {
+		RestTemplate rt = new RestTemplate();
+		ResponseEntity<PlanetArtApiResponse> response = rt.getForEntity("https://api.nasa.gov/planetary/apod?api_key="+apiKey,PlanetArtApiResponse.class );
+		return response.getBody();
+	}
+	
+	//우주사진 db저장 
+	public void addArtData(String url) {
+		nasaDao.addArtData(url);
+		
+	}
+	
+	//우주사진 보여주기 
+	public String getArtData(String url) {
+		return nasaDao.getArtData(url);
+	}
+
+	
+	
 	
 	//날짜계산
 	public long diffDays() {
@@ -34,15 +64,6 @@ public class MarsRoverApiService {
 		return Math.abs(differ);
 		
 
-	}
-		
-	//소행성 
-	public AsteroidsApiResponse getAsteroids() {
-		RestTemplate rt = new RestTemplate();
-		ResponseEntity<AsteroidsApiResponse> response= rt.getForEntity("https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-07&end_date=2015-09-08&api_key="+apiKey, AsteroidsApiResponse.class);
-		
-		return response.getBody();
-		
 	}
 	
 	//오늘 날짜 

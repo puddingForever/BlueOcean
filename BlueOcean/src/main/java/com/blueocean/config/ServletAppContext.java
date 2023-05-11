@@ -1,5 +1,7 @@
 package com.blueocean.config;
 
+import javax.annotation.Resource;
+
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -12,11 +14,17 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import com.blueocean.beans.UserBean;
+import com.blueocean.interceptor.CheckLoginInterceptor;
+import com.blueocean.interceptor.TopMenuInterceptor;
 import com.blueocean.mapper.BoardMapper;
+import com.blueocean.mapper.NasaMapper;
 import com.blueocean.mapper.UserMapper;
 
 @Configuration
@@ -38,6 +46,10 @@ public class ServletAppContext implements WebMvcConfigurer{
 	
 	@Value("${db.password}")
 	private String db_password;
+	
+	
+	@Resource(name="loginUserBean")
+	private UserBean loginUserBean;
 	
 	// Controller의 메서드가 반환하는 jsp의 이름 앞뒤에 경로와 확장자를 붙혀주도록 설정한다.
 	@Override
@@ -90,9 +102,37 @@ public class ServletAppContext implements WebMvcConfigurer{
 	}
 	
 	@Bean
+	public MapperFactoryBean<NasaMapper> getNasaMapper(SqlSessionFactory factory) throws Exception{
+		MapperFactoryBean<NasaMapper> factoryBean = new MapperFactoryBean<NasaMapper>(NasaMapper.class);
+		factoryBean.setSqlSessionFactory(factory);
+		return factoryBean;
+	}
+	
+	
+	@Bean
 	public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
 		return new PropertySourcesPlaceholderConfigurer();
 	}
+	
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		// TODO Auto-generated method stub
+		WebMvcConfigurer.super.addInterceptors(registry);
+		
+		TopMenuInterceptor topMenuInterceptor = new TopMenuInterceptor(loginUserBean);
+		
+		InterceptorRegistration reg1 = registry.addInterceptor(topMenuInterceptor);
+		reg1.addPathPatterns("/**");
+		
+		CheckLoginInterceptor checkLoginInterceptor = new CheckLoginInterceptor(loginUserBean);
+		
+		InterceptorRegistration reg2 = registry.addInterceptor(checkLoginInterceptor);
+		reg2.addPathPatterns("/user/modify","/user/logout","/board/*","/user/profile");
+		reg2.excludePathPatterns("/board/main");
+		
+	}
+	
+	
 	
 	
 	//properties파일을 message로 등록 

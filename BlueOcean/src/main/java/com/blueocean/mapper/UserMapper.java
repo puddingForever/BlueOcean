@@ -21,4 +21,9 @@ public interface UserMapper {
 			+ "where user_id = #{user_id} and user_pw=#{user_pw}")
 	UserBean getLoginUserInfo(UserBean tempLoginUserBean);
 	
+	//아이디 이름만 가져옴  . 비밀번호는 X 
+	@Select("select user_id,user_name "
+			+"from user_table " 
+			+"where user_idx = #{user_idx}")
+	UserBean getModifyUserInfo(int user_idx);
 }

@@ -20,23 +20,19 @@ public class UserValidator implements Validator {
 		
 		String beanName = errors.getObjectName();
 		
-		if(beanName.equals("joinUserBean")) { //회원가입할떄만 검사
-		if(userBean.getUser_pw().equals(userBean.getUser_pw2())==false) {
-			errors.rejectValue("user_pw", "NotEquals");
-			errors.rejectValue("user_pw2", "NotEquals");
+		if(beanName.equals("joinUserBean") || beanName.equals("modifyUserBean")) {
+			if(userBean.getUser_pw().equals(userBean.getUser_pw2()) == false) {
+				errors.rejectValue("user_pw", "NotEquals");
+				errors.rejectValue("user_pw2", "NotEquals");
+			}
+		}
 			
-		}
-		
-		if(userBean.isUserIdExist()==false) {
+		if(beanName.equals("joinUserBean")) {
 			
-			errors.rejectValue("user_id","checkAgain");
+			if(userBean.isUserIdExist() == false) {
+				errors.rejectValue("user_id", "DontCheckUserIdExist");
+			}
 		}
-		
-		}
-
-		
 	}
-
-	
 	
 }
