@@ -1,14 +1,11 @@
 package com.blueocean.interceptor;
 
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 
-import com.blueocean.beans.TopMenuInfoBean;
 import com.blueocean.beans.UserBean;
 
 public class TopMenuInterceptor implements HandlerInterceptor {

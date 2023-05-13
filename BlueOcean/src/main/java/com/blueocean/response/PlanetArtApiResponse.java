@@ -8,6 +8,7 @@ public class PlanetArtApiResponse {
 	private String explanation;
 	private String title;
 	private String url;
+	
 	public String getCopyright() {
 		return copyright;
 	}

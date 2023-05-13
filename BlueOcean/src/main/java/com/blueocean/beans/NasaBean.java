@@ -5,6 +5,7 @@ public class NasaBean {
 	private int nasa_idx;
 	private String nasa_url;
 	private int nasa_user_idx;
+	
 	public int getNasa_idx() {
 		return nasa_idx;
 	}

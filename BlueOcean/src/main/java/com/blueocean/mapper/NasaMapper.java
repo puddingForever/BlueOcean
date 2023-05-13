@@ -3,17 +3,15 @@ package com.blueocean.mapper;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
+import com.blueocean.beans.NasaBean;
+
 public interface NasaMapper {
 	
 	//사진저장
-	@Insert("insert into pudding.art_table (art_idx,art_url) values (art_seq.nextval,#{url})")
-	void addArtData(String url);
+	@Insert("insert into pudding.art_table (art_idx,art_url) values (nasa_seq.nextval,#{nasa_url})")
+	void addArtData(NasaBean nasaBean);
 	
-	//사진가져오기 
-	@Select("select art_url "
-			+ "from pudding.art_table ")
-	String getArtData(String url);
-	
+
 	
 
 }

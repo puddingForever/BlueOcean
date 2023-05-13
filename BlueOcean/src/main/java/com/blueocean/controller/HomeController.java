@@ -4,6 +4,7 @@ package com.blueocean.controller;
 import java.util.Locale;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
@@ -24,7 +25,7 @@ public class HomeController {
 	
 	/*메인 페이지*/
 	@RequestMapping(value="/",method=RequestMethod.GET)
-	public String home(Locale locale) {
+	public String home(HttpServletRequest request,Locale locale) {
 		
 		res.getMessage("label.live", null,locale);
 		res.getMessage("label.login", null,locale);
@@ -35,6 +36,8 @@ public class HomeController {
 		res.getMessage("main.name", null,locale);
 		res.getMessage("main.one", null,locale);
 		res.getMessage("main.two", null,locale);
+		
+		//System.out.println(request.getServletContext().getRealPath("/"));
 		
 		return "redirect:/main";
 	}

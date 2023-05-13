@@ -16,8 +16,8 @@ public class RestApiController {
 	
 	@GetMapping("/user/checkUserIdExist/{user_id}")
 	public String checkUserIdExist(@PathVariable String user_id) {
-		boolean chk = userService.checkuserIdExist(user_id);
+		String result  = userService.checkuserIdExist(user_id);
 		
-		return chk+"";
+		return result;
 	}
 }

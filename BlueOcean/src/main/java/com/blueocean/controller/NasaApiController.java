@@ -44,30 +44,23 @@ public class NasaApiController {
 		return "nasa/marsPhotos";
 	}
 	
-	//우주사진 
+	//APOD 우주사진 
 	@GetMapping("/live")
-	public String getPlanetArt(@ModelAttribute("nasaBean")NasaBean nasaBean ,Model model) {
+	public String getArt(@ModelAttribute("nasaBean")NasaBean nasaBean,Model model) {
 		
 		PlanetArtApiResponse artData = roverService.getArtData();
 		model.addAttribute("artData",artData);
 		return "nasa/live";
 	}
 	
-	//우주사진 저장 및 보내기 
-	@PostMapping("/addArt")
-	public String addArtData(,Model model,@RequestParam(value="artPlanet",required=false)String artPlanet) {
-		
-		roverService.addArtData(artPlanet);
-		roverService.getArtData(artPlanet);
-		
-		String user_id = loginUserBean.getUser_id();
-		
-		String userName = loginUserBean.getUser_name();
-		model.addAttribute("userName",userName);
-		model.addAttribute("artPlanet", artPlanet);
-	
-		return "user/profile";
+	//APOD 우주사진 저장
+	@PostMapping("/addtArt")
+	public String addArt(@ModelAttribute("nasaBean")NasaBean nasaBean) {
+		roverService.addArtData(nasaBean);
+		return "nasa/live";
 	}
+	
+
 	
 	
 	

@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.blueocean.beans.NasaBean;
 import com.blueocean.dao.NasaDao;
 import com.blueocean.response.MarsRoverApiResponse;
 import com.blueocean.response.PlanetArtApiResponse;
@@ -20,12 +21,8 @@ public class MarsRoverApiService {
 	@Autowired
 	private NasaDao nasaDao;
 	
-	
-	
 	private String apiKey = "te7D0y8ycuRMsbRupHfZKL4ISLqp1Txm0VzaeNs1";
-	
-	
-	
+		
 	//화성사진
 	public MarsRoverApiResponse getRoverData(Integer marsSol) {
 		RestTemplate rt = new RestTemplate();
@@ -33,26 +30,23 @@ public class MarsRoverApiService {
 		return response.getBody();
 	}
 	
-	//우주사진
+	//APOD 우주사진
 	public PlanetArtApiResponse getArtData() {
 		RestTemplate rt = new RestTemplate();
 		ResponseEntity<PlanetArtApiResponse> response = rt.getForEntity("https://api.nasa.gov/planetary/apod?api_key="+apiKey,PlanetArtApiResponse.class );
 		return response.getBody();
 	}
 	
-	//우주사진 db저장 
-	public void addArtData(String url) {
-		nasaDao.addArtData(url);
-		
+	//APOD 우주사진 저장
+	public void addArtData(NasaBean nasaBean) {
+		nasaDao.addArtData(nasaBean);
 	}
 	
-	//우주사진 보여주기 
-	public String getArtData(String url) {
-		return nasaDao.getArtData(url);
-	}
-
 	
 	
+	
+	
+	//기타 부가적 기능 
 	
 	//날짜계산
 	public long diffDays() {

@@ -20,7 +20,8 @@
 			type: 'get',
 			dataType : 'text',
 			success : function(result){
-				if(result.trim()=='true'){
+				console.log(result);
+				if(result.trim()=='usable'){
 					alert("사용할 수 있는 아이디입니다.")
 					$("#userIdExist").val('true')
 				}else{

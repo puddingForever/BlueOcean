@@ -7,9 +7,7 @@ import com.blueocean.beans.UserBean;
 
 public interface UserMapper {
 
-	@Select("select user_name "
-			+ "from pudding.user_table "
-			+ "where user_id = #{user_id}")
+	@Select("select (case when count(*)=1 then 'unusable' else 'usable' end) result  from user_table where user_id = #{user_id}")
 	String checkUserIdExist(String user_id);
 	
 	@Insert("insert into user_table (user_idx,user_name,user_id,user_nation,user_pw) " +

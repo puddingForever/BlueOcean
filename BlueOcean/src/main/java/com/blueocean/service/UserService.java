@@ -1,3 +1,4 @@
+
 package com.blueocean.service;
 
 import javax.annotation.Resource;
@@ -14,19 +15,14 @@ public class UserService {
 	@Autowired
 	private UserDao userDao;
 	
-	
 	@Resource(name="loginUserBean")
 	private UserBean loginUserBean;
 	
-	
-	public boolean checkuserIdExist(String user_id) {
-		String user_name = userDao.checkUserIdExist(user_id);
+	//회원 아이디 체크 
+	public  String checkuserIdExist(String user_id) {
+		String result = userDao.checkUserIdExist(user_id);
 		
-		if(user_name==null) {
-			return true;
-		}else {
-			return false;
-		}
+		return result;
 	}
 	
 	//회원가입
