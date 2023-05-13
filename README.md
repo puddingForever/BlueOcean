@@ -13,8 +13,8 @@
 + validation과 Ajax를 이용한 회원가입 유효성검사
 + CRUD 회원가입 및 로그인처리
 + 인터셉터를 이용한 로그인 회원전용 메뉴 및 기능 구성
-### 게시판 CRUD 구현
-++ 여행 후기 게시판 CRUD 기능
+#### 게시판 페이지
++ 여행 후기 게시판 CRUD 기능
 #### 오픈 API의 JSON 데이터 활용 
 + NASA의 Mars Rover Photos API를 이용하여 원하는 날짜의 화성사진 보여줌
 + NASA의 Astronomy Picture of the Day API를 이용하여 NASA가 선정한 오늘 날짜의 우주사진을 보여줌 
