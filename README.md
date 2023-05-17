@@ -9,7 +9,9 @@
 Java, Spring5,OracleDB,JSP
 
 ### ERD
-<img src="https://user-images.githubusercontent.com/126591306/236733775-ae90706d-d574-4719-8e3f-38e572133c25.png" width="500" height="400"/> <br/>
+
+![image](https://github.com/puddingForever/BlueOcean/assets/126591306/f1530969-e6e4-43ef-8399-655e129ebe86)
+
 
 ### 핵심기능 
 #### 회원관리
