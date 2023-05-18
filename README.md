@@ -10,7 +10,8 @@ Java, Spring5,OracleDB,JSP
 
 ### ERD
 
-![image](https://github.com/puddingForever/BlueOcean/assets/126591306/f1530969-e6e4-43ef-8399-655e129ebe86)
+![image](https://github.com/puddingForever/BlueOcean/assets/126591306/688f919d-f148-4092-87fa-26c9cdcb7412)
+
 
 
 ### 핵심기능 
@@ -19,7 +20,7 @@ Java, Spring5,OracleDB,JSP
 + 로그인 사용자 유효성검사 
 #### 쇼핑몰 기능
 + 좋아요 인기상품 Top 3 표시
-+ 예약하기 및 예약페이지 
++ 로켓상품선택,옵션선택,예약확인,예약등록 
 #### 게시판 페이지
 + 게시판 및 댓글 등록,수정,삭제,리스트 정렬
 #### NASA 오픈 API 활용 
