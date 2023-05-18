@@ -6,12 +6,7 @@
 2023-05-01~
 
 ### 기술스택
-
-기술 스택:
-Java 8 / Spring Boot / Gradle / Spring Data JPA / QueryDSL
-H2 / MySQL / Spring Security / Jsoup / Vue.js / Element U
-
-Java, Spring5, OracleDB, 
+#### Java 8 / Spring5 / Maven / MyBatis / OracleDB
 
 ### ERD
 
