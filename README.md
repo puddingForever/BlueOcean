@@ -5,8 +5,13 @@
 ### 프로젝트 기간
 2023-05-01~
 
-###기술스택
-Java, Spring5,OracleDB,JSP
+### 기술스택
+
+기술 스택:
+Java 8 / Spring Boot / Gradle / Spring Data JPA / QueryDSL
+H2 / MySQL / Spring Security / Jsoup / Vue.js / Element U
+
+Java, Spring5, OracleDB, 
 
 ### ERD
 
