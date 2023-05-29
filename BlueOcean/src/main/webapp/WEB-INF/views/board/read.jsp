@@ -4,8 +4,6 @@
 <c:import url="/WEB-INF/views/include/header.jsp" />
 <c:set var='root' value='${pageContext.request.contextPath }/' />
 
-
-
 <div class="container" style="margin-top:100px">
 	<div class="row">
 		<div class="col-sm-3"></div>
@@ -13,6 +11,7 @@
 			<div class="card shadow">
 				<div class="card-body">
 					<div class="form-group">
+						<input type="hidden" id="board_idx" value="${readBoardBean.board_idx }" />
 						<label for="board_writer_name">작성자</label>
 						<input type="text" id="board_writer_name" name="board_writer_name" class="form-control" value="${readBoardBean.board_writer_name }" disabled="disabled"/>
 					</div>
@@ -50,5 +49,90 @@
 	</div>
 </div>
 
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">댓글작성</h5>
+    <p class="card-text"><textarea class="form-control" id="comment" name="comment" rows="3"></textarea></p>
+    <button type="button" class="btn btn-primary" id="writeComment" >댓글작성</button>
+  </div>
+</div>
+
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">댓글</h5>
+    <div id="commentList" >
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+/* 댓글*/
+$("#writeComment").on("click",function(){
+
+	saveComment();
+	commentList();
+	
+})
+
+
+/*댓글 저장*/
+function saveComment(){
+	
+	var comment = $("#comment").val();
+	var board_idx = $("#board_idx").val();
+	
+	var comment_writer= '${loginUserBean.user_name}'
+	
+	if(comment.length==0){
+		alert("댓글을 입력해주세요");
+		return;
+	}
+
+	
+	var params = {
+					comment_board_idx : board_idx,
+					comment_text : comment,
+					comment_writer : comment_writer }
+	
+	
+	$.ajax({ 
+		url:"${root}saveComment",
+		type:"post",
+		contentType: 'application/json',
+		data:JSON.stringify(params),
+		success:function(data){
+			alert("등록이 완료되었습니다")
+			
+		}
+	})//end-ajax
+}
+	
+function commentList(){
+	
+	$.ajax({
+		url:"${root}commentList",
+		type:"get",
+		dataType:"json",
+		success:function(data){
+				
+				for(commentInfo of data.commentList){
+					$("#commentList").append(
+							"<p> 작성자: "+commentInfo.comment_writer+"</p>"+
+							"<p> 댓글 : "+commentInfo.comment_text+"</p>"+
+							"<p> 작성일 : "+commentInfo.comment_date+"</p>"+
+							"<hr>"
+					)//end-append
+					
+				}//end-for
+		}//end-success	
+		
+	})
+	
+}//end-commentlist	
+
+</script>
 <c:import url="/WEB-INF/views/include/footer.jsp" />
 

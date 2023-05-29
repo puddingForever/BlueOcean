@@ -27,7 +27,9 @@ import com.blueocean.interceptor.CheckLoginInterceptor;
 import com.blueocean.interceptor.CheckWriterInterceptor;
 import com.blueocean.interceptor.TopMenuInterceptor;
 import com.blueocean.mapper.BoardMapper;
+import com.blueocean.mapper.CommentMapper;
 import com.blueocean.mapper.NasaMapper;
+import com.blueocean.mapper.RocketMapper;
 import com.blueocean.mapper.UserMapper;
 import com.blueocean.service.BoardService;
 
@@ -37,7 +39,7 @@ import com.blueocean.service.BoardService;
 @ComponentScan("com.blueocean.dao")
 @ComponentScan("com.blueocean.service")
 @PropertySource("/WEB-INF/properties/db.properties")
-public class ServletAppContext implements WebMvcConfigurer{
+public class WebMvcConfig implements WebMvcConfigurer{
 	
 	@Value("${db.classname}")
 	private String db_classname;
@@ -111,6 +113,21 @@ public class ServletAppContext implements WebMvcConfigurer{
 	@Bean
 	public MapperFactoryBean<NasaMapper> getNasaMapper(SqlSessionFactory factory) throws Exception{
 		MapperFactoryBean<NasaMapper> factoryBean = new MapperFactoryBean<NasaMapper>(NasaMapper.class);
+		factoryBean.setSqlSessionFactory(factory);
+		return factoryBean;
+	}
+	
+	
+	@Bean
+	public MapperFactoryBean<RocketMapper> getRocketMapper(SqlSessionFactory factory) throws Exception{
+		MapperFactoryBean<RocketMapper> factoryBean = new MapperFactoryBean<RocketMapper>(RocketMapper.class);
+		factoryBean.setSqlSessionFactory(factory);
+		return factoryBean;
+	}
+	
+	@Bean
+	public MapperFactoryBean<CommentMapper> getCommentMapper(SqlSessionFactory factory) throws Exception{
+		MapperFactoryBean<CommentMapper> factoryBean = new MapperFactoryBean<CommentMapper>(CommentMapper.class);
 		factoryBean.setSqlSessionFactory(factory);
 		return factoryBean;
 	}

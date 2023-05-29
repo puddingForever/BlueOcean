@@ -21,7 +21,7 @@ public class SpringConfigClass extends AbstractAnnotationConfigDispatcherServlet
 	// Spring MVC 프로젝트 설정을 위한 클래스를 지정한다.
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-		return new Class[] {ServletAppContext.class};
+		return new Class[] {WebMvcConfig.class};
 	}
 	
 	// 프로젝트에서 사용할 Bean들을 정의기 위한 클래스를 지정한다.

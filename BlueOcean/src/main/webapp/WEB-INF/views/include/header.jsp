@@ -44,6 +44,9 @@ a {
 		<a href="${root}live/mars">&nbsp; &nbsp;<spring:message	code='label.rover' /></a> &nbsp; &nbsp;|
 		 <a href="${root}live/live">&nbsp;&nbsp;<spring:message code='label.live' /></a> &nbsp; &nbsp;| 
 		 <a href="${root}board/main">&nbsp; &nbsp;<spring:message code='label.board' /></a> &nbsp; &nbsp;|
+		 <a href="${root }shop/reserveMain">&nbsp;&nbsp;예약하기&nbsp; &nbsp;</a> |
+		 <a href="${root }shop/check">&nbsp;&nbsp;예약확인&nbsp; &nbsp;</a> |
+		 
 		<c:choose>
 			<c:when test="${loginUserBean.userLogin==true }"> <!-- 로그인했을 때만 보임 -->
 				<a href="${root}user/modify">&nbsp; &nbsp;<spring:message code='label.modify' /></a>	&nbsp; &nbsp;| 
